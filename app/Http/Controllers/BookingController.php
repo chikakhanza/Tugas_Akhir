@@ -146,3 +146,4 @@ class BookingController extends Controller
         return redirect()->route('bookings.index')->with('success', 'Booking berhasil dihapus.');
     }
 }
+//chika
