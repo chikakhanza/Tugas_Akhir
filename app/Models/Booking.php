@@ -30,3 +30,4 @@ class Booking extends Model
         return $this->belongsTo(Homestay::class);
     }
 }
+//chika
