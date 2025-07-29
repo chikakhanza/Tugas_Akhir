@@ -14,8 +14,6 @@ return new class extends Migration {
             $table->integer('harga_sewa_per_hari');
             $table->text('fasilitas')->nullable();
             $table->integer('jumlah_kamar');
-            $table->integer('lama_inap');
-            $table->integer('total_bayar');
             $table->timestamps();
         });
     }
