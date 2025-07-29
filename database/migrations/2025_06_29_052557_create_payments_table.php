@@ -13,6 +13,8 @@ return new class extends Migration {
             $table->string('metode_pembayaran');
             $table->date('tanggal_pembayaran');
             $table->integer('jumlah_dibayar');
+            $table->string('bukti')->nullable();
+            $table->enum('status', ['pending', 'diterima', 'ditolak'])->default('pending');
             $table->timestamps();
         });
     }

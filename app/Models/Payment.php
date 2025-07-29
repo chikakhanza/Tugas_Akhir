@@ -11,9 +11,12 @@ class Payment extends Model
         'metode_pembayaran',
         'tanggal_pembayaran',
         'jumlah_dibayar',
+        'bukti',
+        'status',
     ];
 
     public function booking()
+
     {
         return $this->belongsTo(Booking::class);
     }

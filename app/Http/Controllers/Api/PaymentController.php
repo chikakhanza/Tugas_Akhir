@@ -20,7 +20,17 @@ class PaymentController extends Controller
             'booking_id' => 'required|exists:bookings,id',
             'metode_pembayaran' => 'required|in:qris,transfer',
             'tanggal_pembayaran' => 'required|date',
+            'status' => 'required|in:pending,diterima,ditolak',
+            'bukti' => 'nullable|file|image|max:2048',
         ]);
+
+        // Handle upload bukti
+        if ($request->hasFile('bukti')) {
+            $file = $request->file('bukti');
+            $filename = uniqid('bukti_') . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('images/bukti'), $filename);
+            $data['bukti'] = 'images/bukti/' . $filename;
+        }
 
         // Ambil total_bayar dari booking
         $booking = Booking::findOrFail($data['booking_id']);
@@ -45,7 +55,17 @@ class PaymentController extends Controller
             'booking_id' => 'required|exists:bookings,id',
             'metode_pembayaran' => 'required|in:qris,transfer',
             'tanggal_pembayaran' => 'required|date',
+            'status' => 'required|in:pending,diterima,ditolak',
+            'bukti' => 'nullable|file|image|max:2048',
         ]);
+
+        // Handle upload bukti
+        if ($request->hasFile('bukti')) {
+            $file = $request->file('bukti');
+            $filename = uniqid('bukti_') . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('images/bukti'), $filename);
+            $data['bukti'] = 'images/bukti/' . $filename;
+        }
 
         // Ambil total_bayar dari booking
         $booking = Booking::findOrFail($data['booking_id']);
