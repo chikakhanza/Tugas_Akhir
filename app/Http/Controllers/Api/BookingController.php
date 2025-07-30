@@ -153,3 +153,4 @@ class BookingController extends Controller
         return response()->json(['message' => 'Booking deleted']);
     }
 }
+//chika
